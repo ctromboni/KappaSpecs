@@ -1,0 +1,76 @@
+h1. OECD.Kappa schema for collections and mapping with Kappa v2 metadata for migration
+
+Metadata with a green background are specific to this work Type, the others are generic metadata applicable to all worktypes
+
+|_.OECD.Kappa Metadata|_.|_.#  |_.Kappa V2 metadata|_.Comments                                               |
+|Author               |W |0-n  |Author             |Taxonomy : person or organization taxonomy               |
+|businessContext      |W |0-1  |NA                 |(KIM) default value : Publication Dissemination. Taxonomy|
+|contentStatus        |W |0-1  |NA                 |(KIM) default value : OECD Publication. Taxonomy         |
+|Context              |W |0-1  |NA                 |Textual metadata (FRBR) describes the context of the publication (ex. 50th anniversary, Cold war, etc)|
+|otherTheme|W|0-n|Theme other than main|Taxonomy . Link to theme taxonomy, these are ‘secondary themes’ after the main theme|
+|timeRange|W|0-n|timeRange|Textual metadata for the moment, it indicates the time range of the published object|
+|Country|W|0-n|country|Taxonomy : country|
+|dateOfPublication|W|0-1|publicationDate|RULE: Inherited from the metadata at manifestation level. Displayed at work level for information purposes, only.
+RULE:  In case of multiple manifestations, the date of the first manifestation published is used|
+|Directorate|W|1|directorate|Taxonomy|
+|Form|W|0-n|NA|(KIM) : nature of information.Taxonomy
+RULE:  If Content type= “Statistics data and indicators” then form =”301” statistics|
+|Igo|W|1|NA|Taxonomy|
+|Imprint|W|0-n|Imprint|Taxonomy of Part 2 and special programmes|
+|Keyword|W|0-n|keywords|Free Text, english Keywords at work level|
+|kimContentType|W|0-1|NA|(KIM): taxonomy, for the moment only Summary and Indicator are assigned|
+|creationDate|W|0-1|Creation date|Generated. Creation date of the record either in KV3 or migrated from KV2. Used for PIM|
+|lastUpdate|W|0-1|Last update date then generated|Generated|
+|mainTheme|W|0-1|Main theme|Taxonomy: Theme considered as main in iLibrary|
+|objectType|W|1-n|Catalogue type following the mapping||
+|Provenance|W|0-1|NA|(KIM): taxonomy one value PAC|
+|Region|W|0-n|Region|Taxonomy regions (updated with also the list of UN regions)|
+|shortTitle|W|0-1|shortTitle||
+|subTitle|W|0-1|Subtitle in English||
+|Title|W|1|Title in English|Work title is always in EN|
+|webTopic|W|0-n|webTopic|Taxonomy of topics used in OECD.org. For indicators they are automatically assigned based on their subtopic. See: https://pacps01.oecd.org/redmine/documents/346|
+| %{background:lightgreen}Numbered series%|W|1|Numbered series|y/n|
+| %{background:lightgreen}OECD.statBanner%|W|0,1|OECD.statBanner|For Databases|
+|Context|E|0-1|NA|(FRBR ): Textual metadata describes the context of the publication in the language of the expression (ex. 50th anniversary, Cold war, etc)|
+|criticalResponse|E|0-1|NA|(FRBR ): Textual metadata describes the reaction to the publication in the language of the expression|
+|dateOfPublication|E|0-1|Publication date|RULES : Inherited from the metadata at manifestation level. Displayed at work level for information purposes, only. In case of multiple manifestations, the date of the first manifestation published is used.|
+|doiPrefix|E|0-1|doiPrefix|Prefix corresponding to the IGO for the generation of the DOI|
+|doiSuffix|E|0-1|doiSuffix|Suffix number of the DOI|
+|doiTitle|E|0-1|title|Contains the title that was registered with the DOI agency|
+|doiSubTitle|E|0-1|subtitle|Contains the subtitle that was registered with the DOI agency|
+|iLibraryUrl|E|0-1|iLibraryUrl||
+|keyword|E|0-n|language|Textual keywords in the language of the expression|
+|language|E|1|language|Taxonomy|
+|creationDate|E|0-1|Creation date |Generated.Creation date of the record either in KV3 or migrated from KV2. Used for PIM.|
+|lastUpdate|E|0-1|Last update date|Generated|
+|subTitle|E|0-1|Subtitle||
+|userCode|E|0-1|NA|Each object has a specific user code which can be used to attach a manifestation file to the correct expression|
+|abstract|E|0-1|Marketing blurb|Corresponds to the marketing blurb|
+|shortAbstract|E|0-1|||
+|shortTitle|E|0-1|||
+|user|E|0-1|User||
+|iLibraryAccessType|E|0-1|iLibraryAccessType|Taxonomy: Free or under access control|
+| %{background:lightgreen}aimsAndScope%|E|0-1|aimsAndScope|Text|
+| %{background:lightgreen}callForPapers%|E|0-1|callForPapers|Text|
+| %{background:lightgreen}ISSNL%|E|0-1|ISSNL|Copy of the ISSN which has IsISSNL=y|
+| %{background:lightgreen}startDate%|E||0-1|||
+| %{background:lightgreen}enDate%|E||0-1|||
+|Availability|M|1|availability Status|Taxonomy: RULE: MLS are loaded “not yet available” Indicators  “available”|
+|dateOfPublication|M|0-1||Corresponds to publicationDate in KV2. For indicators and datasets this is the date of first export to iLibrary.|
+|di|M|0-1|Di|Metadata migrated as a backlog reference from Kappa V2 (to be hidden)|
+|embargoDate|M|0-1|||
+|fileName|M|0-1|||
+|fileNameAlias|M|0-1|||
+|creationDate|M|1|||
+|lastUpdate|M|1|||
+|medium|M|1||Taxonomy|
+|publisher|M|0-n||Taxonomy : link to organization|
+|subTitle|M|0-1|||
+|title|	M|1|||
+|pageNumber|M|0-1|||
+|pageSize|M|0-1	||Taxonomy: for print|
+|colourNumber|M|0-1||Taxonomy: for print|
+|onlineBookShopUrl|M|0-1|||
+|user|M|0-1|||
+| %{background:lightgreen}iSSN%|M|1|||
+| %{background:lightgreen}isISSNL%|M|1||y-n|
